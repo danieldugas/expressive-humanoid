@@ -64,7 +64,7 @@ def play(args):
     args.task = "h1_mimic_eval" if args.task == "h1_mimic" or args.task == "h1_mimic_amp" else args.task
     faulthandler.enable()
     exptid = args.exptid
-    log_pth = "../../logs/{}/".format(args.proj_name) + args.exptid
+    log_pth = os.path.expanduser("~/Code/expressive-humanoid/legged_gym/logs/{}/".format(args.proj_name) + args.exptid)
 
     env_cfg, train_cfg = task_registry.get_cfgs(name=args.task)
     # override some parameters for testing
@@ -261,3 +261,6 @@ def play(args):
 if __name__ == '__main__':
     args = get_args()
     play(args)
+    """
+     060-40 --delay --motion_name motions_daniel.yaml
+    """
